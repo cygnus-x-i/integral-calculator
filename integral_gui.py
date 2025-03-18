@@ -1,42 +1,25 @@
 
-# ################################################################################################################
-# # Check for libraries
-# while True:
-#     try:
-#         # If all libraries are present, continue to next section
-#         import tkinter as tk
-#         from tkinter import messagebox
-#         from sympy import Symbol, sympify, integrate
-#         import sympy as sy
-#         break
+################################################################################################################
+# Check for libraries
+while True:
+    try:
+        # If all libraries are present, continue to next section
+        import tkinter as tk
+        from tkinter import messagebox
+        from sympy import Symbol, sympify, integrate
+        import sympy as sy
+        break
 
-#     except ImportError as imp_err:
-#         import os
-#         import random
+    except ImportError as imp_err:
+        import os
+        import random
 
-#         print(f"\nYou are missing:  {imp_err.name}")
+        print(f"\nYou are missing:  {imp_err.name}")
 
-#         # Generates a random passcode
-#         passcode = ""
-#         characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%&_=+-?~"
-#         for i in range(10):
-#             passcode += random.choice(characters)
+        os.system(f"pip install {imp_err.name}") # Installs missing library
 
-#         # Enter the passcode for installation -- I don't like installing things on other people's computers
-#         # without them knowing what they are downloading.  This prevents accidental installation.
-#         while input(f"Enter the following characters to install {imp_err.name}:  {passcode}  ") != passcode:
-#             print("\nPasscodes do not match, please try again")
-#             passcode = ""
-#             for i in range(10):
-#                 passcode += random.choice(characters)
+        # Return to try block to re-import libraries #
 
-#         os.system(f"pip install {imp_err.name}") # Installs missing library
-
-#         # Return to try block to re-import libraries #
-import tkinter as tk
-from tkinter import messagebox
-from sympy import Symbol, sympify, integrate
-import sympy as sy
 ################################################################################################################
 # Python Integration GUI
 
@@ -67,7 +50,7 @@ def function_input():
         return (f, a, b)
 
     except Exception as e:
-        raise ValueError(f"Errror {e}")
+        raise ValueError(f"Error {e}")
 
 def calc_integrals(event=None):
     """
